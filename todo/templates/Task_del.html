@@ -1,0 +1,16 @@
+{% extends 'base_.html' %}
+
+{% block content %}
+<form method="post">{% csrf_token %}
+    <p>Вы уверены, что хотите удалить задачу "<b> {{ list.pk }}.
+         {{ list.name }} 
+        </b> " ?</p>
+    {{ form }}
+    <input type="submit" value="ОК">
+</form>
+
+{% comment %} <form  method="post">{% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Сохранить">
+    </form> {% endcomment %}
+{% endblock content %}

@@ -1,0 +1,22 @@
+{% extends 'base_.html' %}
+
+{% block content %}
+    <div class="card mb-4">
+        <div class="card-body">
+            <h2 class="card-title"> {{ list.pk }}.
+                <b> {{ list.name }} 
+                </b> </h2>
+            
+                
+            <p class="card-subtitle mb-2 text-muted"><b>Задача выполнена: </b> {{ list.is_done }}</p  >
+            <p class="card-text"> <b>Дата и время начала: </b> {{ list.start_dt }} </p>
+            <p class="card-text"> <b>Дата и время завершения: </b> {{ list.end_dt }} </p>
+            
+            <form action="/tasks/{{ list.pk }}/update">
+                <input type="submit" value="Редактировать" />
+            </form> <form action="/tasks/{{ list.pk }}/delete">
+                <input type="submit" value="Удалить" />
+            </form>
+        </div>
+    </div>
+{% endblock content %}

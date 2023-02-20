@@ -1,0 +1,25 @@
+{% extends 'base_.html' %}
+
+{% block content %}
+    <h1> Активные задачи:
+         
+    </h1>
+
+    {% for list in lists_ %}
+        <div class="card mb-1">
+            
+              <h4>
+                {{ list.pk }}. 
+                <b><a href="/tasks/{{ list.pk }}">
+                    {{ list.name }} 
+                </a></b>
+                <p><b>Дата и время начала: </b>  
+                  {{ list.start_dt }}</p>
+                  
+                 </h4>
+                
+                 
+        </div>
+    {% endfor %}
+    <form action="/tasks/new"><input type="submit" value="Добавить новую задачу" />   </form>
+{% endblock content %}
